@@ -1,0 +1,293 @@
+/* style.css */
+
+/* General */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(90deg, #0066ff, #00ccff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGradient 5s ease infinite alternate;
+}
+@keyframes textGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Navbar */
+.navbar {
+  transition: background-color 0.3s ease;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #444;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+  color: #007bff;
+}
+
+.navbar-brand {
+  letter-spacing: 2px;
+}
+
+/* Hero Section */
+.hero-bg {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-img {
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 25px rgba(0, 204, 255, 0.8);
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px 5px rgba(0, 204, 255, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 30px 15px rgba(0, 204, 255, 1);
+  }
+}
+
+/* Typed text */
+.typed-text-glow {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e0f7ff;
+  text-shadow: 0 0 8px #00ccff;
+}
+
+/* Buttons */
+.btn-animated {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn-animated:hover {
+  background-color: #0056b3 !important;
+  box-shadow: 0 12px 25px rgba(0, 123, 255, 0.5);
+}
+
+/* Floating shapes */
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  animation: floatUpDown 6s ease-in-out infinite alternate;
+}
+
+.shape1 {
+  width: 100px;
+  height: 100px;
+  background: #00ccff;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+.shape2 {
+  width: 150px;
+  height: 150px;
+  background: #0066ff;
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+}
+.shape3 {
+  width: 80px;
+  height: 80px;
+  background: #00aaff;
+  top: 50%;
+  left: 50%;
+  animation-delay: 4s;
+}
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Sections */
+section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* Section Titles */
+.section-title {
+  font-weight: 700;
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+/* Skills */
+.skill-card {
+  transition: transform 0.4s ease;
+}
+.skill-card:hover {
+  transform: scale(1.05);
+}
+
+.skill-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.skill-list li {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.progress {
+  height: 12px;
+  border-radius: 25px;
+  overflow: hidden;
+  background-color: #e6e6e6;
+  margin-top: 0.3rem;
+}
+
+.progress-bar {
+  transition: width 1.5s ease-in-out;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.7);
+}
+
+/* Projects */
+.project-card {
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  cursor: pointer;
+}
+.project-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.5);
+  transform: translateY(-8px);
+}
+
+/* Timeline */
+.timeline {
+  list-style: none;
+  position: relative;
+  padding-left: 2rem;
+  border-left: 3px solid #007bff;
+}
+
+.timeline li {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -3.3rem;
+  top: 0;
+  background: #007bff;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px rgba(0, 123, 255, 1);
+  }
+}
+
+.timeline-content {
+  background: white;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+  box-shadow: 0 10px 30px rgba(0,123,255,0.2);
+}
+
+/* Education */
+.education-cards .card:hover {
+  box-shadow: 0 10px 30px rgba(0, 204, 255, 0.3);
+  transform: translateY(-6px);
+  transition: all 0.3s ease;
+}
+
+/* Contact */
+.contact-info {
+  display: flex;
+  align-items: center;
+}
+
+.contact-info a {
+  word-break: break-word;
+  display: inline-block;
+  max-width: 100%;
+}
+
+
+/* Helper classes */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+
+/* Publications */
+.publication-entry {
+  border-left: 5px solid #007bff;
+  transition: background-color 0.3s ease;
+}
+
+.publication-entry h5 {
+  color: #0066ff;
+}
+
+.publication-entry p {
+  color: #444;
+  font-size: 1rem;
+}
+
+.publication-entry a.btn-outline-primary {
+  border-radius: 25px;
+}
