@@ -1,385 +1,739 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vivek Shravan Gupta | Portfolio</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <!-- AOS Animation CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
-
-  <!-- Custom CSS -->
+  <meta
+    name="description"
+    content="Vivek Shravan Gupta is an AI/ML-focused full-stack software engineer building LLM evaluation workflows, scalable data platforms, responsive web apps, and cross-platform systems."
+  />
+  <title>Vivek Shravan Gupta | AI Full-Stack Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <canvas id="neuralCanvas" aria-hidden="true"></canvas>
 
-  <!-- Navbar -->
-  <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-light bg-light shadow-sm">
-    <div class="container-fluid px-5">
-      <a class="navbar-brand fw-bold fs-3 gradient-text" href="#home">Vivek G.</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navContent"
-        aria-controls="navContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <header class="site-header">
+    <a class="brand-mark" href="#home" aria-label="Vivek Shravan Gupta home">
+      <span>VG</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="#systems">Systems</a>
+      <a href="#skills">Skills</a>
+      <a href="#story">Story</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-resume magnetic" href="assets/Vivek_Shravan_Gupta_Resume.pdf" download>
+      <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+      <span>Resume</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+  </header>
 
-      <div class="collapse navbar-collapse" id="navContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
-          <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link px-3" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link px-3" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link px-3" href="#experience">Experience</a></li>
-          <li class="nav-item"><a class="nav-link px-3" href="#education">Education</a></li>
-          <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="home" class="vh-100 d-flex align-items-center justify-content-center hero-bg text-center position-relative overflow-hidden">
-    <div class="container-fluid px-5 text-white" data-aos="fade-up" data-aos-duration="1500">
-      <img
-        src="assets/1654593545448.jpeg"
-        alt="Vivek"
-        class="rounded-circle shadow-lg border border-4 border-white mb-4 hero-img"
-        width="180"
-        height="180"
-        loading="lazy"
-      />
-      <h1 class="display-4 fw-bold mb-3 glow-text">Hi, I'm Vivek Shravan Gupta</h1>
-      <p class="lead fw-semibold typed-text-glow mb-4">
-        <span id="typedText"></span>
-      </p>
-      <a href="assets/Vivek_Shravan_Gupta_Resume.pdf" download class="btn btn-primary btn-lg btn-animated shadow">
-        <i class="fas fa-download me-2"></i> Download Resume
-      </a>
-    </div>
-    <!-- Floating animated shapes -->
-    <div class="floating-shape shape1"></div>
-    <div class="floating-shape shape2"></div>
-    <div class="floating-shape shape3"></div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-5 bg-white">
-    <div class="container-fluid px-5" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
-      <h2 class="section-title gradient-text mb-4">About Me</h2>
-      <p class="fs-5 text-secondary">
-        I’m Vivek Shravan Gupta, a passionate software developer and recently graduated in Computer Science from DePaul University. My journey blends full-stack web development, machine learning, and cloud computing into real-world, high-impact solutions. With a background rooted in engineering and a hunger for innovation, I’ve built AI-powered tools, immersive campus apps, and scalable systems that solve real problems.
-      </p>
-      <p class="fs-5 text-secondary">
-        Beyond code, I believe in precision, purpose, and progress — crafting clean solutions, collaborating across disciplines, and constantly learning. Whether it's building smarter pipelines or optimizing user experiences, I bring energy, integrity, and results to every project.
-      </p>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="py-5 bg-light">
-    <div class="container-fluid px-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-      <h2 class="section-title gradient-text mb-4">Skills</h2>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3">
-          <div class="skill-card p-3 shadow-sm rounded bg-white">
-            <h5 class="mb-3 text-primary">Programming Languages</h5>
-            <ul class="skill-list">
-              <li>Java <div class="progress"><div class="progress-bar bg-primary" style="width: 90%"></div></div></li>
-              <li>Python <div class="progress"><div class="progress-bar bg-primary" style="width: 85%"></div></div></li>
-              <li>JavaScript <div class="progress"><div class="progress-bar bg-primary" style="width: 80%"></div></div></li>
-              <li>C, C++, C# <div class="progress"><div class="progress-bar bg-primary" style="width: 75%"></div></div></li>
-              <li>R, Swift, Kotlin <div class="progress"><div class="progress-bar bg-primary" style="width: 65%"></div></div></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="skill-card p-3 shadow-sm rounded bg-white">
-            <h5 class="mb-3 text-success">Web & Frameworks</h5>
-            <ul class="skill-list">
-              <li>HTML, CSS <div class="progress"><div class="progress-bar bg-success" style="width: 95%"></div></div></li>
-              <li>PHP, React.js, Vue.js <div class="progress"><div class="progress-bar bg-success" style="width: 80%"></div></div></li>
-              <li>Node.js, Django, Flask <div class="progress"><div class="progress-bar bg-success" style="width: 75%"></div></div></li>
-              <li>Bootstrap, jQuery, AJAX <div class="progress"><div class="progress-bar bg-success" style="width: 85%"></div></div></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="skill-card p-3 shadow-sm rounded bg-white">
-            <h5 class="mb-3 text-warning">Databases</h5>
-            <ul class="skill-list">
-              <li>SQL, MySQL <div class="progress"><div class="progress-bar bg-warning" style="width: 85%"></div></div></li>
-              <li>PostgreSQL, MongoDB <div class="progress"><div class="progress-bar bg-warning" style="width: 75%"></div></div></li>
-              <li>SQLite, Oracle <div class="progress"><div class="progress-bar bg-warning" style="width: 70%"></div></div></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="skill-card p-3 shadow-sm rounded bg-white">
-            <h5 class="mb-3 text-danger">Cloud & Tools</h5>
-            <ul class="skill-list">
-              <li>AWS, GCP, Azure <div class="progress"><div class="progress-bar bg-danger" style="width: 80%"></div></div></li>
-              <li>Chameleon Cloud, Unity3D <div class="progress"><div class="progress-bar bg-danger" style="width: 70%"></div></div></li>
-              <li>.NET, Android/iOS SDK <div class="progress"><div class="progress-bar bg-danger" style="width: 75%"></div></div></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="py-5 bg-white">
-    <div class="container-fluid px-5" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-      <h2 class="section-title gradient-text mb-5">Projects</h2>
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="card project-card shadow-sm border-0 h-100 hover-scale">
-            <div class="card-body">
-              <h5 class="card-title text-primary">Destiny - Campus Virtual Tour</h5>
-              <p class="card-text text-secondary">
-                Led development of a Unity3D-based immersive campus tour using Android SDK, ARCore, and GPS, enhancing navigation 
-                by 30% through real-time geo-location features. Configured system’s cloud-readiness using GCP & AWS.Designed 
-                front-end with React.js, Bootstrap, and HTML/CSS for responsive, cross-platform support using JavaScript and SQL 
-                for backend logic.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card project-card shadow-sm border-0 h-100 hover-scale">
-            <div class="card-body">
-              <h5 class="card-title text-success">F.O.O.D. - Food Offering & Other Donations</h5>
-              <p class="card-text text-secondary">
-                Created a full-stack web application using PHP, HTML, CSS, JavaScript, and MySQL, reducing donation processing 
-                time by 25%. Integrated real-time updates via AJAX and Socket.io, improving user interaction. 
-                Configured infrastructure for cloud compatibility using MongoDB and Node.js to enable scalable back-end operations, 
-                increasing user donation activity by 15%.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card project-card shadow-sm border-0 h-100 hover-scale">
-            <div class="card-body">
-              <h5 class="card-title text-danger">Jeevandaan - Organ Donation System</h5>
-              <p class="card-text text-secondary">
-                Built a secure organ donation platform using Django, Python, and PostgreSQL, improving user authentication 
-                efficiency by 30%. Integrated React.js for a dynamic front-end that reduced user registration time by 20%. 
-                Developed RESTful APIs for seamless data exchange, ensuring 99.9% uptime and scalability, using OAuth 2.0 for 
-                secure access to sensitive data.
-              </p>
-            </div>
-          </div>
-        </div>  
-        <div class="col-md-6">
-          <div class="card project-card shadow-sm border-0 h-100 hover-scale">
-            <div class="card-body">
-              <h5 class="card-title text-dark">AI-Based Customer Support Chatbot</h5>
-              <p class="card-text text-secondary">
-                Developed an AI-powered chatbot using Google Cloud NLP, TensorFlow, and NLP techniques, reducing customer service 
-                response time by 40% and improving customer satisfaction by 35%. Integrated with Django and React.js for dynamic 
-                realtime interaction. Configured backend on AWS-compatible architecture, utilizing MongoDB for storing 
-                interactions and implemented Socket.io for seamless real-time chat, handling over 1,000 requests daily.
-              </p>
-            </div>
-          </div>
-        </div>  
-        <div class="col-md-6">
-          <div class="card project-card shadow-sm border-0 h-100 hover-scale">
-            <div class="card-body">
-              <h5 class="card-title text-info">Smart Attendance System using Face Recognition</h5>
-              <p class="card-text text-secondary">
-                Developed an AI-driven face recognition system using Python, TensorFlow, OpenCV, and dlib, automating 
-                attendance marking and reducing manual effort by 60%. Integrated with React.js and Django for real-time update. 
-                Configured cloud-ready hosting architecture, utilizing SQLite for data management, and AJAX for seamless updates, 
-                increasing system adoption by 50% across the school.
-              </p>
-            </div>
-          </div>
-        </div>  
-        <div class="col-md-6">
-          <div class="card project-card shadow-sm border-0 h-100 hover-scale">
-            <div class="card-body">
-              <h5 class="card-title text-warning">Face Recognition Based Computation</h5>
-              <p class="card-text text-secondary">
-                Created a face recognition system using Python, OpenCV, and dlib, tracking crowd density in real-time, 
-                improving security analysis by 25%. Integrated Node.js for backend processing and MongoDB for data storage. 
-                Set up infrastructure for potential deployment on Google Cloud Platform, with real-time updates powered by 
-                React.js and AJAX, reducing data processing time by 30%.
-              </p>
-            </div>
-          </div>
-        </div>    
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience" class="py-5 bg-light">
-    <div class="container-fluid px-5" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="500">
-      <h2 class="section-title gradient-text mb-4">Experience</h2>
-      <ul class="timeline">
-        <li>
-          <div class="timeline-icon bg-primary"><i class="fas fa-flask"></i></div>
-          <div class="timeline-content shadow p-3 rounded">
-            <h5>Research Assistant - DePaul University</h5>
-            <span class="text-muted fst-italic">Feb 2024 – Jun 2025</span>
-            <p>Engineered and integrated advanced machine learning algorithms to optimize data storage efficiency, achieving a 25% 
-              improvement in data analysis speed. Applied techniques such as dimensionality reduction, clustering, and regression models 
-              to accelerate data retrieval processes. Collaborated cross-functionally with data scientists, engineers, and research teams to implement scalable machine learning 
-              solutions, enhancing data-driven research pipelines across various academic and industrial projects. Led the design and optimization of end-to-end data pipelines, incorporating efficient data pre-processing techniques in Python 
-              using libraries such as Pandas, NumPy, and Scikit-learn to manage large-scale datasets.</p>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-icon bg-success"><i class="fas fa-code"></i></div>
-          <div class="timeline-content shadow p-3 rounded">
-            <h5>Full Stack Developer - Laxmi Print-o-Pack</h5>
-            <span class="text-muted fst-italic">Dec 2021 – May 2022</span>
-            <p>Developed and tested full-stack web applications using React.js, Node.js, Express.js, and MongoDB, resulting in a 
-              30% increase in development speed and overall company performance. Built interactive and responsive user interfaces 
-              using React.js, Bootstrap, and CSS, ensuring consistent cross-platform experiences across desktops, tablets, and 
-              mobile devices, which increased user engagement by 25%</p>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-icon bg-success"><i class="fas fa-code"></i></div>
-          <div class="timeline-content shadow p-3 rounded">
-            <h5>Web Developer - Creatix Digibar</h5>
-            <span class="text-muted fst-italic">Jun 2021 – Nov 2021</span>
-            <p>Led the design and development of scalable web applications using Angular and Bootstrap, boosting site performance by 
-              40% and significantly enhancing client retention. Utilized modern web technologies to create dynamic, user-friendly 
-              interfaces and improve website accessibility.</p>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-icon bg-success"><i class="fas fa-robot"></i></div>
-          <div class="timeline-content shadow p-3 rounded">
-            <h5>Machine Learning Developer - SAKEC</h5>
-            <span class="text-muted fst-italic">Jun 2021 – Aug 2021</span>
-            <p>Designed and implemented a Fake Tweet Detection application within JupyterLab, utilizing Natural Language 
-              Processing techniques and Machine Learning models to identify misleading or false tweets. Focused on data 
-              preprocessing, model selection, and evaluation to optimize accuracy and performance. The project demonstrated 
-              the practical use of ML in combating misinformation on social media platforms.</p>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-icon bg-success"><i class="fas fa-code"></i></div>
-          <div class="timeline-content shadow p-3 rounded">
-            <h5>Web Developer - Insys technologies</h5>
-            <span class="text-muted fst-italic">May 2019 – Jul 2019</span>
-            <p>Engineered an interactive e-commerce website using front-end and back-end technologies, improving user experience 
-              and increasing site traffic by 20%. Applied best practices in web development to ensure a seamless and engaging 
-              user interface.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section id="education" class="py-5 bg-white">
-    <div class="container-fluid px-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-      <h2 class="section-title gradient-text mb-4">Education</h2>
-      <div class="education-cards row g-4">
-        <div class="col-md-6">
-          <div class="card shadow-sm p-4 rounded bg-light border-0 hover-scale">
-            <h5 class="text-primary">DePaul University <br> Chicago, IL, USA</h5>
-            <p>Master of Science in Computer Science <span class="text-muted fst-italic"> <br> [CGPA: 3.95/4]</span> — Sep 2023 – Jun 2025</p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card shadow-sm p-4 rounded bg-light border-0 hover-scale">
-            <h5 class="text-success">University of Mumbai <br> Mumbai, MH, India</h5>
-            <p>Bachelor of Engineering in Computer Engineering <span class="text-muted fst-italic"> <br> [CGPA: 9.43/10]</span> — Jun 2020 – May 2023</p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card shadow-sm p-4 rounded bg-light border-0 hover-scale">
-            <h5 class="text-warning">Vivekanand Education Society's Polytechnic <br> Mumbai, MH, India</h5>
-            <p>Diploma in Computer Engineering <span class="text-muted fst-italic">(USA equivalent of Associate Degree)</span> <span class="text-muted fst-italic"> <br> [Percentage: 93.09/100]</span> — Jun 2017 – May 2020</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Publications Section -->
-  <section id="publications" class="py-5 bg-light">
-    <div class="container-fluid px-5" data-aos="fade-up" data-aos-duration="1000">
-      <h2 class="section-title gradient-text mb-4">Publications</h2>
-
-      <div class="publication-entry py-4 px-4 bg-light mb-4 rounded">
-        <h5 class="fw-bold">Destiny – A Campus Virtual Tour</h5>
-        <p class="mb-1"><strong>Journal:</strong> GRENZE International Journal of Engineering and Technology · Jul 28, 2023</p>
-        <p class="mb-1"><strong>Conference:</strong> 14th International Conference on ACT · Jun 15, 2023</p>
-        <p>
-        The challenge experienced by users in navigating complex interior facilities is addressed by the Virtual 
-          Tour and Indoor Navigation System using QR Scanner in this research paper. Traditional navigation methods, such as maps
-          and signals, can be difficult to comprehend and frequently give insufficient information about the surroundings. The 
-          Virtual Tour and Indoor Navigation System of College Premises named as Destiny is a cutting-edge system developed to 
-          give students, faculty, and visitors an immersive and interactive exploration of the college campus. To create an 
-          extensive and entertaining virtual tour experience, the system makes use of modern technologies such as virtual 
-          reality, augmented reality, and QR code scanning. Users can access a detailed map of the campus and navigate through
-            different buildings and amenities, such as lecture rooms, libraries, labs, and sports facilities, using this system. 
-            Users can access extra information about each facility, including schedules, resources, and other pertinent data, by 
-            scanning QR codes posted at important areas. The system is user-friendly and accessible, allowing users to 
-            effortlessly navigate the college grounds and locate the amenities they require.
+  <main>
+    <section id="home" class="hero section-shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">
+          <span class="status-dot"></span>
+          Chicago-based AI/ML full-stack engineer
         </p>
-        <a href="https://thegrenze.com/index.php?display=page&view=journalabstract&absid=1790&id=8" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary me-2">Show publication</a> 
-        <a href="http://www.scopus.com/inward/record.url?eid=2-s2.0-85174280608&partnerID=MN8TOARS" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">Scopus Link</a>
-      </div>
-
-      <!-- Add more entries like this -->
-      <!-- Use alternating backgrounds by toggling `bg-white` and `bg-light` classes -->
-
-    </div>
-  </section>
-
-
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-5 bg-white">
-    <div class="container-fluid px-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="700">
-      <h2 class="section-title gradient-text mb-4">Contact</h2>
-      <div class="row g-4 fs-5">
-        <div class="col-md-4 contact-info">
-          <i class="fas fa-envelope fa-fw me-3 text-primary"></i> Email:
-          <a href="mailto:guptavivek2709@gmail.com" class="text-decoration-none ms-1 text-dark">guptavivek2709@gmail.com</a>
-        </div>
-        <div class="col-md-4 contact-info">
-          <i class="fab fa-linkedin fa-fw me-3 text-info"></i> LinkedIn:
-          <a href="https://www.linkedin.com/in/vivek-s-gupta" target="_blank" rel="noopener" class="text-decoration-none ms-1 text-dark text-wrap d-inline-block">linkedin.com/in/vivek-s-gupta</a>
-        </div>
-        <div class="col-md-4 contact-info mt-3">
-          <i class="fab fa-github fa-fw me-3"></i> GitHub:
-          <a href="https://github.com/guptavivek2709" target="_blank" rel="noopener" class="text-decoration-none ms-1 text-dark">github.com/guptavivek2709</a>
+        <h1>Vivek Shravan Gupta</h1>
+        <p class="hero-lede">
+          I build the full product stack: sharp frontend interfaces, resilient backend systems,
+          cloud-ready data platforms, mobile and immersive experiences, and human-in-the-loop AI evaluation workflows.
+        </p>
+        <div class="hero-actions" aria-label="Primary actions">
+          <a class="button primary magnetic" href="#systems">
+            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+            <span>Explore Systems</span>
+          </a>
+          <a class="button secondary magnetic" href="mailto:guptavivek2709@gmail.com">
+            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            <span>Contact</span>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- AOS Animation JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <!-- Typed.js -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <!-- Custom JS -->
+      <div class="hero-visual reveal" aria-label="Profile signal panel">
+        <div class="portrait-frame tilt-card">
+          <img src="assets/1654593545448.jpeg" alt="Portrait of Vivek Shravan Gupta" />
+          <div class="portrait-aura" aria-hidden="true"></div>
+        </div>
+        <div class="signal-stack" aria-label="Career highlights">
+          <article class="signal-card tilt-card">
+            <span>Data acceleration</span>
+            <strong>52%</strong>
+            <p>Faster processing with clustering, regression, and dimensionality reduction.</p>
+          </article>
+          <article class="signal-card tilt-card">
+            <span>AI systems</span>
+            <strong>LLM Eval</strong>
+            <p>Prompt design, expert review, error analysis, benchmarking, and feedback trends.</p>
+          </article>
+          <article class="signal-card tilt-card">
+            <span>Realtime scale</span>
+            <strong>1,000+</strong>
+            <p>Daily chatbot requests handled with Django, React, MongoDB, and Socket.io.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-panel section-shell reveal" aria-label="Portfolio focus areas">
+      <div class="proof-intro">
+        <p class="eyebrow">What I bring</p>
+        <h2>Practical engineering across intelligent products and real-world platforms.</h2>
+      </div>
+      <div class="proof-grid">
+        <article>
+          <i class="fa-solid fa-brain" aria-hidden="true"></i>
+          <h3>AI Systems Judgment</h3>
+          <p>LLM evaluation, prompt design, error analysis, benchmarking, and structured feedback loops.</p>
+        </article>
+        <article>
+          <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
+          <h3>Full-Stack Delivery</h3>
+          <p>Frontend interfaces, backend APIs, auth flows, realtime behavior, databases, and deployment-ready code.</p>
+        </article>
+        <article>
+          <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+          <h3>Mobile Product Range</h3>
+          <p>Android and iOS apps spanning weather, news, transit, recipes, drawing, location, and trip tracking.</p>
+        </article>
+        <article>
+          <i class="fa-solid fa-database" aria-hidden="true"></i>
+          <h3>Data + Cloud Thinking</h3>
+          <p>Machine learning pipelines, terabyte-sized research datasets, CI/CD workflows, and cloud-ready systems.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="work" class="work section-shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Current signal</p>
+        <h2>AI-first experience with full-stack execution.</h2>
+      </div>
+
+      <div class="experience-grid">
+        <article class="experience-card featured reveal tilt-card">
+          <div class="card-kicker">
+            <i class="fa-solid fa-brain" aria-hidden="true"></i>
+            Sep 2025 - Present
+          </div>
+          <h3>AI Trainer - AI Systems Evaluation</h3>
+          <p class="company">Handshake AI | Chicago, USA | Remote</p>
+          <ul>
+            <li>Develop and evaluate domain-specific prompts for LLM reasoning, consistency, clarity, and depth.</li>
+            <li>Analyze outputs for accuracy and logic, then convert patterns into structured model feedback.</li>
+            <li>Support iterative model improvement through research, benchmarking criteria, and evaluation trend tracking.</li>
+          </ul>
+        </article>
+
+        <article class="experience-card reveal tilt-card">
+          <div class="card-kicker">
+            <i class="fa-solid fa-database" aria-hidden="true"></i>
+            Feb 2024 - Jun 2025
+          </div>
+          <h3>Research Assistant</h3>
+          <p class="company">DePaul University | Chicago, USA</p>
+          <ul>
+            <li>Built a platform for TB-scale datasets and machine learning model workflows.</li>
+            <li>Improved data processing speed by 52% with clustering, regression, and dimensionality reduction.</li>
+            <li>Led a Django and Python CI/CD pipeline using Pandas, NumPy, and Scikit-learn.</li>
+          </ul>
+        </article>
+
+        <article class="experience-card reveal tilt-card">
+          <div class="card-kicker">
+            <i class="fa-solid fa-code" aria-hidden="true"></i>
+            Dec 2021 - May 2022
+          </div>
+          <h3>Full Stack Developer</h3>
+          <p class="company">Laxmi Print-o-Pack | Mumbai, India</p>
+          <ul>
+            <li>Built and tested React, Node, Express, and MongoDB applications for multiple clients.</li>
+            <li>Accelerated development by 34% and improved responsive UX across desktop, tablet, and mobile.</li>
+            <li>Used React and Tailwind CSS to drive a 28% increase in user engagement.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="systems" class="systems section-shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Selected systems</p>
+        <h2>Products that prove range across AI, backend, frontend, mobile, and cloud.</h2>
+      </div>
+
+      <div class="system-grid">
+        <article class="system-card reveal tilt-card">
+          <div class="system-topline">
+            <span>AI + Realtime</span>
+            <i class="fa-solid fa-comments" aria-hidden="true"></i>
+          </div>
+          <h3>AI-Based Customer Support Chatbot</h3>
+          <p>
+            Google Cloud NLP, TensorFlow, Django, React, MongoDB, and Socket.io chatbot that reduced response time by
+            40% and handled 1,000+ requests daily.
+          </p>
+          <div class="tag-row" aria-label="Technologies">
+            <span>TensorFlow</span>
+            <span>Django</span>
+            <span>React</span>
+            <span>Socket.io</span>
+          </div>
+        </article>
+
+        <article class="system-card reveal tilt-card">
+          <div class="system-topline">
+            <span>Secure Platform</span>
+            <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
+          </div>
+          <h3>Jeevandaan - Organ Donation System</h3>
+          <p>
+            Django, Python, PostgreSQL, React, REST APIs, and OAuth 2.0 platform that improved authentication efficiency
+            by 30% and reduced registration time by 20%.
+          </p>
+          <div class="tag-row" aria-label="Technologies">
+            <span>Python</span>
+            <span>PostgreSQL</span>
+            <span>OAuth 2.0</span>
+            <span>REST</span>
+          </div>
+        </article>
+
+        <article class="system-card reveal tilt-card">
+          <div class="system-topline">
+            <span>Mobile + AR</span>
+            <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
+          </div>
+          <h3>Destiny - Campus Virtual Tour</h3>
+          <p>
+            Unity3D, Android SDK, ARCore, GPS, C#, Java, Kotlin, GCP, and AWS campus tour system that improved navigation
+            by 30% through real-time geo-location.
+          </p>
+          <div class="tag-row" aria-label="Technologies">
+            <span>Unity3D</span>
+            <span>ARCore</span>
+            <span>Kotlin</span>
+            <span>GCP</span>
+          </div>
+        </article>
+      </div>
+
+      <div id="additional-systems" class="additional-systems">
+        <div class="subsection-heading reveal">
+          <div>
+            <p class="eyebrow">Additional selected builds</p>
+            <h3>Advanced systems across AI, data, mobile, and product engineering.</h3>
+          </div>
+        </div>
+
+        <div class="additional-grid">
+          <article class="project-card additional-card reveal tilt-card">
+            <div class="system-topline">
+              <span>AI Evaluation Platform</span>
+              <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
+            </div>
+            <h3>LLM Evaluation Workbench</h3>
+            <p>
+              Human-in-the-loop platform for prompt suites, rubric scoring, expert review queues, error taxonomy,
+              benchmark comparisons, and model-quality trend dashboards.
+            </p>
+            <div class="tag-row" aria-label="Technologies">
+              <span>LLM Eval</span>
+              <span>Rubrics</span>
+              <span>Analytics</span>
+              <span>Django</span>
+            </div>
+            <span class="project-badge">AI + QA</span>
+          </article>
+
+          <article class="project-card additional-card reveal tilt-card">
+            <div class="system-topline">
+              <span>RAG Product System</span>
+              <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
+            </div>
+            <h3>Enterprise Knowledge Assistant</h3>
+            <p>
+              Retrieval-augmented assistant for internal documents with ingestion pipelines, embeddings, citation-backed
+              answers, access control, feedback capture, and admin observability.
+            </p>
+            <div class="tag-row" aria-label="Technologies">
+              <span>RAG</span>
+              <span>Vector Search</span>
+              <span>Auth</span>
+              <span>React</span>
+            </div>
+            <span class="project-badge">Search + AI</span>
+          </article>
+
+          <article class="project-card additional-card reveal tilt-card">
+            <div class="system-topline">
+              <span>Data Platform</span>
+              <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+            </div>
+            <h3>MLOps Data Quality Pipeline</h3>
+            <p>
+              Cloud-ready pipeline for terabyte-sized datasets with validation, experiment tracking, drift alerts,
+              model-metric dashboards, and CI/CD checks for research workflows.
+            </p>
+            <div class="tag-row" aria-label="Technologies">
+              <span>Python</span>
+              <span>ML Pipelines</span>
+              <span>Cloud</span>
+              <span>CI/CD</span>
+            </div>
+            <span class="project-badge">ML + Cloud</span>
+          </article>
+
+          <article class="project-card additional-card reveal tilt-card">
+            <div class="system-topline">
+              <span>Support AI Console</span>
+              <i class="fa-solid fa-headset" aria-hidden="true"></i>
+            </div>
+            <h3>Support Intelligence Console</h3>
+            <p>
+              Realtime customer-support command center with chat triage, sentiment signals, escalation routing,
+              agent-assist suggestions, conversation search, and SLA analytics.
+            </p>
+            <div class="tag-row" aria-label="Technologies">
+              <span>Realtime</span>
+              <span>NLP</span>
+              <span>Socket.io</span>
+              <span>MongoDB</span>
+            </div>
+            <span class="project-badge">Realtime AI</span>
+          </article>
+
+          <article class="project-card additional-card reveal tilt-card">
+            <div class="system-topline">
+              <span>Cross-platform Mobile</span>
+              <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+            </div>
+            <h3>Field Ops Mobile Suite</h3>
+            <p>
+              Android/iOS field application for offline-first task capture, GPS check-ins, QR workflows,
+              push notifications, sync conflict handling, and manager dashboards.
+            </p>
+            <div class="tag-row" aria-label="Technologies">
+              <span>Android</span>
+              <span>iOS</span>
+              <span>Offline Sync</span>
+              <span>Maps</span>
+            </div>
+            <span class="project-badge">Mobile + Maps</span>
+          </article>
+
+          <article class="project-card additional-card reveal tilt-card">
+            <div class="system-topline">
+              <span>Secure SaaS Platform</span>
+              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+            </div>
+            <h3>Healthcare Exchange Platform</h3>
+            <p>
+              Secure donation and care-coordination portal with OAuth, role-based dashboards, audit logs,
+              REST APIs, notification workflows, and operational analytics.
+            </p>
+            <div class="tag-row" aria-label="Technologies">
+              <span>OAuth</span>
+              <span>REST APIs</span>
+              <span>PostgreSQL</span>
+              <span>Audit Logs</span>
+            </div>
+            <span class="project-badge">Security + APIs</span>
+          </article>
+        </div>
+      </div>
+
+      <div class="github-projects">
+        <div class="subsection-heading reveal">
+          <div>
+            <p class="eyebrow">GitHub-backed projects</p>
+            <h3>More builds that show practical product range.</h3>
+          </div>
+          <a class="text-link" href="https://github.com/guptavivek2709" target="_blank" rel="noopener">
+            <span>View GitHub</span>
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card reveal tilt-card">
+            <div class="system-topline">
+              <span>Android | Weather API</span>
+              <i class="fa-solid fa-cloud-sun-rain" aria-hidden="true"></i>
+            </div>
+            <h3>Weather Intelligence App</h3>
+            <p>
+              Android Java weather client with Visual Crossing data, current and hourly forecasts, location search,
+              unit toggles, weather alerts, temperature charting, map intent, share flow, and offline/network handling.
+            </p>
+            <div class="tag-row" aria-label="Technologies">
+              <span>Java</span>
+              <span>Android SDK</span>
+              <span>Location</span>
+              <span>API</span>
+            </div>
+            <a class="repo-link" href="https://github.com/guptavivek2709/Mobile-App-Development/tree/main/Android%20Projects/WeatherApi2024" target="_blank" rel="noopener">
+              <span>Repository</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <article class="project-card reveal tilt-card">
+            <div class="system-topline">
+              <span>Android | News Platform</span>
+              <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+            </div>
+            <h3>NewsApp 2025</h3>
+            <p>
+              News reader with a navigation drawer, source filtering by topic, country, and language, ViewPager article
+              browsing, dynamic menus, JSON parsing, and external article launch flows.
+            </p>
+            <div class="tag-row" aria-label="Technologies">
+              <span>Java</span>
+              <span>Volley</span>
+              <span>ViewPager2</span>
+              <span>DrawerLayout</span>
+            </div>
+            <a class="repo-link" href="https://github.com/guptavivek2709/Mobile-App-Development/tree/main/Android%20Projects/NewsApp2025" target="_blank" rel="noopener">
+              <span>Repository</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <article class="project-card reveal tilt-card">
+            <div class="system-topline">
+              <span>Android | Museum API</span>
+              <i class="fa-solid fa-palette" aria-hidden="true"></i>
+            </div>
+            <h3>Art Institute Explorer</h3>
+            <p>
+              Art discovery app using the Art Institute of Chicago API with search validation, random artwork discovery,
+              RecyclerView results, detail screens, image loading, copyright info, and gallery deep links.
+            </p>
+            <div class="tag-row" aria-label="Technologies">
+              <span>Java</span>
+              <span>RecyclerView</span>
+              <span>Volley</span>
+              <span>REST</span>
+            </div>
+            <a class="repo-link" href="https://github.com/guptavivek2709/Mobile-App-Development/tree/main/Android%20Projects/ArtInstituteAPIApp" target="_blank" rel="noopener">
+              <span>Repository</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <article class="project-card reveal tilt-card">
+            <div class="system-topline">
+              <span>Android | Transit</span>
+              <i class="fa-solid fa-bus" aria-hidden="true"></i>
+            </div>
+            <h3>CTA Bus Tracker</h3>
+            <p>
+              Chicago transit app with CTA route loading, route caching, search, location permissions, nearest-stop
+              workflows, dynamic direction/stop selection, splash timing, and defensive network handling.
+            </p>
+            <div class="tag-row" aria-label="Technologies">
+              <span>Java</span>
+              <span>Gson</span>
+              <span>Location</span>
+              <span>Cache</span>
+            </div>
+            <a class="repo-link" href="https://github.com/guptavivek2709/Mobile-App-Development/tree/main/Android%20Projects/CTA_2025" target="_blank" rel="noopener">
+              <span>Repository</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <article class="project-card reveal tilt-card">
+            <div class="system-topline">
+              <span>Android | GPS Service</span>
+              <i class="fa-solid fa-route" aria-hidden="true"></i>
+            </div>
+            <h3>FollowMe Trip Tracker</h3>
+            <p>
+              Location-sharing app with login/register dialogs, saved credentials, fine/background location permissions,
+              foreground GPS service, notification channel, trip creation, API sync, and shareable trip flows.
+            </p>
+            <div class="tag-row" aria-label="Technologies">
+              <span>Java</span>
+              <span>Foreground Service</span>
+              <span>Maps</span>
+              <span>Volley</span>
+            </div>
+            <a class="repo-link" href="https://github.com/guptavivek2709/Mobile-App-Development/tree/main/Android%20Projects/FollowMe" target="_blank" rel="noopener">
+              <span>Repository</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <article class="project-card reveal tilt-card">
+            <div class="system-topline">
+              <span>iOS | SwiftUI</span>
+              <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+            </div>
+            <h3>SmartChef</h3>
+            <p>
+              SwiftUI recipe and meal planning app with ingredient-based recipe search, TheMealDB integration,
+              recipe detail views, favourites, quick meal assignment, and persisted weekly plans.
+            </p>
+            <div class="tag-row" aria-label="Technologies">
+              <span>SwiftUI</span>
+              <span>AsyncImage</span>
+              <span>UserDefaults</span>
+              <span>API</span>
+            </div>
+            <a class="repo-link" href="https://github.com/guptavivek2709/Mobile-App-Development/tree/main/IOS%20Projects/SmartChef" target="_blank" rel="noopener">
+              <span>Repository</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <article class="project-card reveal tilt-card">
+            <div class="system-topline">
+              <span>iOS | Creative Tool</span>
+              <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i>
+            </div>
+            <h3>SketchScape</h3>
+            <p>
+              UIKit drawing app with a custom canvas, scribble and shape modes, grid/dark canvas options, color and brush
+              controls, undo stack, saved drawings, reuse flow, and settings persistence.
+            </p>
+            <div class="tag-row" aria-label="Technologies">
+              <span>Swift</span>
+              <span>UIKit</span>
+              <span>Core Graphics</span>
+              <span>Persistence</span>
+            </div>
+            <a class="repo-link" href="https://github.com/guptavivek2709/Mobile-App-Development/tree/main/IOS%20Projects/SketchScape" target="_blank" rel="noopener">
+              <span>Repository</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <article class="project-card reveal tilt-card">
+            <div class="system-topline">
+              <span>iOS | Location</span>
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+            </div>
+            <h3>LocationLab</h3>
+            <p>
+              SwiftUI location lab with CoreLocation permissions, live location and heading updates, adjustable precision,
+              reverse geocoding, formatted addresses, and observable state management.
+            </p>
+            <div class="tag-row" aria-label="Technologies">
+              <span>SwiftUI</span>
+              <span>CoreLocation</span>
+              <span>Geocoding</span>
+              <span>ObservableObject</span>
+            </div>
+            <a class="repo-link" href="https://github.com/guptavivek2709/Mobile-App-Development/tree/main/IOS%20Projects/LocationLab" target="_blank" rel="noopener">
+              <span>Repository</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <article class="project-card reveal tilt-card">
+            <div class="system-topline">
+              <span>Django | Finance Flow</span>
+              <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+            </div>
+            <h3>Banking System App</h3>
+            <p>
+              Django banking application with customer and transaction models, customer lookup, transfer creation,
+              transaction history, admin registration, templates, and SQLite-backed persistence.
+            </p>
+            <div class="tag-row" aria-label="Technologies">
+              <span>Django</span>
+              <span>Python</span>
+              <span>SQLite</span>
+              <span>HTML</span>
+            </div>
+            <a class="repo-link" href="https://github.com/guptavivek2709/banking_system_app" target="_blank" rel="noopener">
+              <span>Repository</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="skills section-shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Capability map</p>
+        <h2>One engineer across product surfaces, intelligence layers, and infrastructure.</h2>
+      </div>
+
+      <div class="focus-lab reveal">
+        <div class="focus-tabs" role="tablist" aria-label="Engineering focus areas">
+          <button class="focus-tab active" type="button" role="tab" aria-selected="true" data-focus="ai">
+            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+            AI
+          </button>
+          <button class="focus-tab" type="button" role="tab" aria-selected="false" data-focus="frontend">
+            <i class="fa-solid fa-display" aria-hidden="true"></i>
+            Frontend
+          </button>
+          <button class="focus-tab" type="button" role="tab" aria-selected="false" data-focus="backend">
+            <i class="fa-solid fa-server" aria-hidden="true"></i>
+            Backend
+          </button>
+          <button class="focus-tab" type="button" role="tab" aria-selected="false" data-focus="mobile">
+            <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i>
+            Mobile
+          </button>
+          <button class="focus-tab" type="button" role="tab" aria-selected="false" data-focus="cloud">
+            <i class="fa-solid fa-cloud" aria-hidden="true"></i>
+            Cloud
+          </button>
+        </div>
+
+        <div class="focus-panel" role="tabpanel" aria-live="polite">
+          <div>
+            <p class="focus-label">Active stack</p>
+            <h3 id="focusTitle">Human-in-the-loop AI systems</h3>
+            <p id="focusText">
+              LLM evaluation, prompt engineering, benchmarking, error analysis, experimentation, model feedback, ML pipelines,
+              TensorFlow, NLP, Scikit-learn, Pandas, and NumPy.
+            </p>
+          </div>
+          <div class="console" aria-label="AI evaluation console">
+            <div class="console-bar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <code id="consoleLine">eval.run(reasoning=true, clarity=true, consistency=true)</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-cloud reveal" aria-label="Technical skills">
+        <span>Java</span>
+        <span>Python</span>
+        <span>JavaScript</span>
+        <span>C#</span>
+        <span>Swift</span>
+        <span>Kotlin</span>
+        <span>React.js</span>
+        <span>Vue.js</span>
+        <span>Tailwind</span>
+        <span>Django</span>
+        <span>Flask</span>
+        <span>Node.js</span>
+        <span>.NET</span>
+        <span>Unity3D</span>
+        <span>ARCore</span>
+        <span>Android SDK</span>
+        <span>iOS SDK</span>
+        <span>MongoDB</span>
+        <span>PostgreSQL</span>
+        <span>AWS</span>
+        <span>GCP</span>
+        <span>Azure</span>
+      </div>
+    </section>
+
+    <section id="story" class="story section-shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Education + publication</p>
+        <h2>Academic depth with product-minded execution.</h2>
+      </div>
+
+      <div class="story-grid">
+        <article class="story-card reveal tilt-card">
+          <div class="story-icon">
+            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+          </div>
+          <h3>DePaul University</h3>
+          <p>Master of Science in Computer Science | Chicago, IL</p>
+          <strong>CGPA 3.95/4 | Sep 2023 - Jun 2025</strong>
+        </article>
+        <article class="story-card reveal tilt-card">
+          <div class="story-icon">
+            <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+          </div>
+          <h3>University of Mumbai</h3>
+          <p>Bachelor of Engineering in Computer Engineering | Mumbai, India</p>
+          <strong>CGPA 9.43/10 | Jun 2020 - May 2023</strong>
+        </article>
+        <article class="story-card publication reveal tilt-card">
+          <div class="story-icon">
+            <i class="fa-solid fa-scroll" aria-hidden="true"></i>
+          </div>
+          <h3>Destiny - A Campus Virtual Tour</h3>
+          <p>
+            Published in GRENZE International Journal of Engineering and Technology and presented at the 14th International
+            Conference on ACT.
+          </p>
+          <div class="publication-actions">
+            <a class="text-link" href="https://thegrenze.com/index.php?display=page&view=journalabstract&absid=1790&id=8" target="_blank" rel="noopener">
+              <span>Publication</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+            <a class="text-link" href="http://www.scopus.com/inward/record.url?eid=2-s2.0-85174280608&partnerID=MN8TOARS" target="_blank" rel="noopener">
+              <span>Scopus</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact section-shell">
+      <div class="contact-panel reveal">
+        <div>
+          <p class="eyebrow">Build something intelligent</p>
+          <h2>Frontend polish, backend muscle, AI judgment.</h2>
+          <p>
+            I am open to software engineering, full-stack, AI/ML, and platform roles where thoughtful systems matter.
+          </p>
+        </div>
+        <div class="contact-actions" aria-label="Contact links">
+          <a class="contact-link magnetic" href="mailto:guptavivek2709@gmail.com">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <span>guptavivek2709@gmail.com</span>
+          </a>
+          <a class="contact-link magnetic" href="tel:+18723679203">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <span>872-367-9203</span>
+          </a>
+          <a class="contact-link magnetic" href="https://www.linkedin.com/in/vivek-s-gupta" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a class="contact-link magnetic" href="https://github.com/guptavivek2709" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <span>Vivek Shravan Gupta</span>
+    <span>AI/ML | Full-stack | Mobile | Cloud</span>
+  </footer>
+
   <script src="scripts.js"></script>
 </body>
 </html>
