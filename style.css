@@ -191,10 +191,9 @@ button {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.98fr) minmax(360px, 0.9fr);
-  gap: clamp(48px, 7vw, 100px);
+  grid-template-columns: 1fr;
   align-items: center;
-  min-height: 86svh;
+  min-height: 78svh;
   padding: clamp(122px, 14vw, 162px) 0 clamp(54px, 7vw, 94px);
 }
 
@@ -229,14 +228,14 @@ button {
 }
 
 .hero h1 {
-  max-width: 860px;
+  max-width: 1040px;
   text-wrap: balance;
   text-shadow: 0 16px 70px rgba(22, 143, 209, 0.13);
 }
 
 .hero-lede {
-  max-width: 760px;
-  margin: 34px 0 0;
+  max-width: none;
+  margin: 0;
   color: #415c72;
   font-size: clamp(1.04rem, 2vw, 1.35rem);
   line-height: 1.65;
@@ -278,21 +277,28 @@ button {
   transform: translateY(-2px);
 }
 
-.hero-visual {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
-  align-items: stretch;
-  min-width: 0;
-}
-
 .hero-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(300px, 0.62fr);
+  column-gap: clamp(34px, 6vw, 88px);
+  align-items: end;
   min-width: 0;
+  width: 100%;
 }
 
-.portrait-frame,
-.signal-card,
+.hero-copy .eyebrow {
+  grid-column: 1 / -1;
+}
+
+.hero-copy h1 {
+  grid-column: 1;
+}
+
+.hero-copy .hero-lede,
+.hero-copy .hero-actions {
+  grid-column: 2;
+}
+
 .experience-card,
 .system-card,
 .story-card,
@@ -305,72 +311,6 @@ button {
   backdrop-filter: blur(18px);
 }
 
-.portrait-frame {
-  position: relative;
-  min-height: 480px;
-  overflow: hidden;
-  background: #eaf8ff;
-}
-
-.portrait-frame::before {
-  position: absolute;
-  inset: 12px;
-  z-index: 2;
-  pointer-events: none;
-  content: "";
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  border-radius: calc(var(--radius) - 2px);
-  box-shadow:
-    0 0 0 1px rgba(22, 143, 209, 0.16),
-    0 22px 58px rgba(96, 230, 223, 0.16) inset;
-}
-
-.portrait-frame::after {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  content: "";
-  box-shadow:
-    16px 16px 0 -14px rgba(96, 230, 223, 0.9) inset,
-    -16px -16px 0 -14px rgba(126, 140, 255, 0.78) inset;
-}
-
-.portrait-frame img {
-  width: 100%;
-  height: 100%;
-  min-height: 480px;
-  object-fit: cover;
-  object-position: center top;
-  filter: saturate(1.08) contrast(1.06);
-}
-
-.portrait-aura {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 28%),
-    linear-gradient(315deg, rgba(96, 230, 223, 0.24), transparent 34%),
-    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.16) 50%, transparent 100%);
-  background-size: auto, auto, 230% 100%;
-  mix-blend-mode: soft-light;
-}
-
-.signal-stack {
-  display: none;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-
-.signal-card {
-  min-height: 142px;
-  padding: 20px;
-  overflow: hidden;
-}
-
-.signal-card span,
 .system-topline span,
 .card-kicker,
 .focus-label {
@@ -379,31 +319,6 @@ button {
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-}
-
-.signal-card strong {
-  display: block;
-  margin: 13px 0 8px;
-  color: var(--sky);
-  font-size: clamp(2rem, 3.6vw, 3.35rem);
-  line-height: 0.96;
-  font-weight: 900;
-}
-
-.signal-card:nth-child(2) strong {
-  color: var(--coral);
-  font-size: clamp(1.55rem, 2.5vw, 2.25rem);
-}
-
-.signal-card:nth-child(3) strong {
-  color: #0ca5b8;
-}
-
-.signal-card p {
-  margin: 0;
-  color: #60788d;
-  font-size: 0.88rem;
-  line-height: 1.48;
 }
 
 .proof-panel {
@@ -1007,6 +922,16 @@ button {
     padding-top: 118px;
   }
 
+  .hero-copy {
+    display: block;
+    max-width: 900px;
+  }
+
+  .hero-lede {
+    max-width: 760px;
+    margin-top: 34px;
+  }
+
   .experience-card.featured {
     grid-row: auto;
     min-height: 440px;
@@ -1099,27 +1024,6 @@ button {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .hero-visual {
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
-
-  .signal-stack {
-    display: none;
-  }
-
-  .portrait-frame {
-    width: min(100%, 420px);
-    min-height: 0;
-    aspect-ratio: 1 / 1;
-  }
-
-  .portrait-frame img {
-    min-height: 0;
-    height: 100%;
-    object-fit: contain;
-  }
-
   .focus-tabs {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1202,19 +1106,6 @@ button {
     justify-content: center;
   }
 
-  .portrait-frame {
-    justify-self: center;
-    width: min(100%, 300px);
-    min-height: 0;
-    aspect-ratio: 1 / 1;
-  }
-
-  .portrait-frame img {
-    min-height: 0;
-    height: 100%;
-    object-fit: contain;
-  }
-
   .proof-grid {
     grid-template-columns: 1fr;
   }
@@ -1238,22 +1129,6 @@ button {
     flex-direction: column;
   }
 }
-
-@media (max-width: 360px) {
-  .hero {
-    gap: 0;
-    min-height: auto;
-  }
-
-  .hero-visual {
-    display: grid;
-  }
-
-  .portrait-frame {
-    width: min(100%, 280px);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
