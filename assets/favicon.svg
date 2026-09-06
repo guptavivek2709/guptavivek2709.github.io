@@ -1,11 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="VG">
-  <defs>
-    <linearGradient id="vg-bg" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#d6f7ff"/>
-      <stop offset="0.48" stop-color="#60e6df"/>
-      <stop offset="1" stop-color="#9ab8ff"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="12" fill="url(#vg-bg)"/>
-  <text x="32" y="39" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="900" fill="#0b3148">VG</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Vivek Gupta">
+  <rect width="64" height="64" rx="18" fill="#080908"/>
+  <circle cx="32" cy="32" r="24" fill="#c8ff48"/>
+  <text x="32" y="40" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="25" font-weight="800" letter-spacing="-2" fill="#090a08">V.</text>
 </svg>

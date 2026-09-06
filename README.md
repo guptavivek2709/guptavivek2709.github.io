@@ -1,6 +1,6 @@
-# 🌐 Vivek Gupta's Portfolio
+# Vivek Gupta — Intelligent Systems Portfolio
 
-Welcome to my personal portfolio website, built and hosted using [GitHub Pages](https://pages.github.com/).
+An immersive, accessible portfolio for Vivek Shravan Gupta: AI systems evaluation, full-stack product engineering, data platforms, native mobile, and spatial computing.
 
 ### 🔗 Live Site
 [https://guptavivek2709.github.io](https://guptavivek2709.github.io)
@@ -15,4 +15,4 @@ This repository contains the source code for my portfolio, which highlights:
 - 💼 Projects I’ve worked on
 - 📫 Contact details and social links
 
-The website is fully static (HTML/CSS/JavaScript) and deploys automatically via GitHub Pages.
+The website is fully static, dependency-free at runtime, and deploys cleanly to GitHub Pages. Its interactive system core, case-study diagrams, filters, command palette, responsive navigation, and reduced-motion mode are built with HTML, CSS, JavaScript, and Canvas.
